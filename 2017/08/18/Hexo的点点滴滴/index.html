@@ -97,11 +97,11 @@
 <meta name="description" content="站在别人的肩膀上干活儿的确方便. -刘顿  官方教程-中文版   Hexo命令三部曲 hexo clean 清理缓存 hexo g OR hexo generate 生成静态文件 hexo d OR hexo deploy 部署服务器  利用github部署 去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io cd 到你的hexo目录下，clone之.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的点点滴滴">
-<meta property="og:url" content="http://yoursite.com/2017/08/18/Hexo的点点滴滴. markdown/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/Hexo的点点滴滴/index.html">
 <meta property="og:site_name" content="木头人小记">
 <meta property="og:description" content="站在别人的肩膀上干活儿的确方便. -刘顿  官方教程-中文版   Hexo命令三部曲 hexo clean 清理缓存 hexo g OR hexo generate 生成静态文件 hexo d OR hexo deploy 部署服务器  利用github部署 去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io cd 到你的hexo目录下，clone之.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-18T05:29:18.000Z">
+<meta property="og:updated_time" content="2017-08-18T05:59:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo的点点滴滴">
 <meta name="twitter:description" content="站在别人的肩膀上干活儿的确方便. -刘顿  官方教程-中文版   Hexo命令三部曲 hexo clean 清理缓存 hexo g OR hexo generate 生成静态文件 hexo d OR hexo deploy 部署服务器  利用github部署 去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io cd 到你的hexo目录下，clone之.">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴. markdown/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴/"/>
 
 
 
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴. markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木头人">
@@ -351,8 +351,16 @@
 </ol>
 <p>搞定</p>
 <h2 id="博客中的代码高亮"><a href="#博客中的代码高亮" class="headerlink" title="博客中的代码高亮"></a>博客中的代码高亮</h2><p>常用语言对应表：（所有支持语言就不罗列了，太多了~）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">语言        |      标记   </div><div class="line">Objective C   |   objectivec, mm, objc, obj-c</div><div class="line">C++   |   cpp, c, cc, h, c++, h++, hpp</div><div class="line">Java   |   java，jsp</div><div class="line">JavaScript   |   javascript, js, jsx</div><div class="line">Markdown   |   markdown, md, mkdown, mkd</div><div class="line">PHP   |    php, php3, php4, php5, php6</div><div class="line">SQL   |   sql</div></pre></td></tr></table></figure></p>
-<h2 id="博客中的图片插入"><a href="#博客中的图片插入" class="headerlink" title="博客中的图片插入"></a>博客中的图片插入</h2><p>常用的图片url插入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![图片的alt信息，可空)](图片的url)</div></pre></td></tr></table></figure></p>
-<p>本地的话，需要在<code>source</code>目录中新建<code>images</code>文件，文件名称固定为<code>images</code>，然后讲博客中需要的图片放入文件夹中，在博客中图片插入方法为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![图片的alt信息，可空)](./images/图片名称)</div></pre></td></tr></table></figure></p>
+<h2 id="博客中的图片插入"><a href="#博客中的图片插入" class="headerlink" title="博客中的图片插入"></a>博客中的图片插入</h2><h3 id="本地引用-绝对路径"><a href="#本地引用-绝对路径" class="headerlink" title="本地引用-绝对路径"></a>本地引用-绝对路径</h3><ol>
+<li>在<code>source</code>中创建<code>images</code>文件夹，通过markdown语法访问</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/image.jpg)</div></pre></td></tr></table></figure>
+<h3 id="本地引用-相对路径-（个人推荐）"><a href="#本地引用-相对路径-（个人推荐）" class="headerlink" title="本地引用-相对路径 （个人推荐）"></a>本地引用-相对路径 （个人推荐）</h3><ol>
+<li>主配置文件<code>_config.yml</code>，修改<code>post_asset_folder</code>字段值<code>true</code>。修改完成后，当执行<code>hexo new xxx</code>时，会自动创建一个对应博客的文件夹。</li>
+<li>将对应博客内使用到的图片放入对应文件夹后，使用语法来访问：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](image.jpg)</div></pre></td></tr></table></figure>
+<h3 id="CDN引用"><a href="#CDN引用" class="headerlink" title="CDN引用"></a>CDN引用</h3><p>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。比如<a href="http://cloudinary.com/" target="_blank" rel="external">Cloudinary</a>提供的图片CDN服务，在Cloudinary中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
 <h2 id="博客中的音乐播放与视频播放"><a href="#博客中的音乐播放与视频播放" class="headerlink" title="博客中的音乐播放与视频播放"></a>博客中的音乐播放与视频播放</h2><p>插入音频的话一般是通过iframe或者flash的。</p>
 <h2 id="博客首屏展示字数-gt-点击查看全部"><a href="#博客首屏展示字数-gt-点击查看全部" class="headerlink" title="博客首屏展示字数-&gt;点击查看全部"></a>博客首屏展示字数-&gt;点击查看全部</h2><p>我现在用的主题是<code>Next</code>，打开主题配置文件<code>_config.yml</code>，搜索<code>auto_excerpt</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Automatically Excerpt. Not recommand.</div><div class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</div><div class="line">auto_excerpt:</div><div class="line">enable: false</div><div class="line">length: 150</div></pre></td></tr></table></figure></p>
 <p>把<code>enable</code>改成YES，就可以了。</p>
@@ -361,6 +369,7 @@
 <li>标题的<code>##</code>号一定要与后面的标题文字之前起码有一个空格，不然不可以展示出来。</li>
 <li><code>-</code>有序无序的排列后，要再空格一行以上，否则下面继续编辑的文字会有偏移。</li>
 </ul>
+<p>markdown中的表格编辑方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">| 一个普通标题 | 一个普通标题 | 一个普通标题 |</div><div class="line">| ------| ------ | ------ |</div><div class="line">| 短文本 | 中等文本 | 稍微长一点的文本 |</div><div class="line">| 稍微长一点的文本 | 短文本 | 中等文本 |</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -509,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令三部曲"><span class="nav-number">1.</span> <span class="nav-text">Hexo命令三部曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用github部署"><span class="nav-number">2.</span> <span class="nav-text">利用github部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的代码高亮"><span class="nav-number">3.</span> <span class="nav-text">博客中的代码高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的图片插入"><span class="nav-number">4.</span> <span class="nav-text">博客中的图片插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的音乐播放与视频播放"><span class="nav-number">5.</span> <span class="nav-text">博客中的音乐播放与视频播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客首屏展示字数-gt-点击查看全部"><span class="nav-number">6.</span> <span class="nav-text">博客首屏展示字数->点击查看全部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown编写过程中遇到的坑。"><span class="nav-number">7.</span> <span class="nav-text">markdown编写过程中遇到的坑。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令三部曲"><span class="nav-number">1.</span> <span class="nav-text">Hexo命令三部曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用github部署"><span class="nav-number">2.</span> <span class="nav-text">利用github部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的代码高亮"><span class="nav-number">3.</span> <span class="nav-text">博客中的代码高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的图片插入"><span class="nav-number">4.</span> <span class="nav-text">博客中的图片插入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地引用-绝对路径"><span class="nav-number">4.1.</span> <span class="nav-text">本地引用-绝对路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地引用-相对路径-（个人推荐）"><span class="nav-number">4.2.</span> <span class="nav-text">本地引用-相对路径 （个人推荐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN引用"><span class="nav-number">4.3.</span> <span class="nav-text">CDN引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客中的音乐播放与视频播放"><span class="nav-number">5.</span> <span class="nav-text">博客中的音乐播放与视频播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客首屏展示字数-gt-点击查看全部"><span class="nav-number">6.</span> <span class="nav-text">博客首屏展示字数->点击查看全部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown编写过程中遇到的坑。"><span class="nav-number">7.</span> <span class="nav-text">markdown编写过程中遇到的坑。</span></a></li></ol></div>
             
 
           </div>

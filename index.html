@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴. markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/Hexo的点点滴滴/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木头人">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/18/Hexo的点点滴滴. markdown/" itemprop="url">Hexo的点点滴滴</a></h1>
+                <a class="post-title-link" href="/2017/08/18/Hexo的点点滴滴/" itemprop="url">Hexo的点点滴滴</a></h1>
         
 
         <div class="post-meta">
@@ -339,10 +339,23 @@
         
           
           
+站在别人的肩膀上干活儿的确方便. -刘顿
+
+官方教程-中文版 
+
+Hexo命令三部曲
+hexo clean 清理缓存
+hexo g OR hexo generate 生成静态文件
+hexo d OR hexo deploy 部署服务器
+
+利用github部署
+去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io
+cd 到你的hexo目录下，clone之.
+打开_config.yml文件，找到deploy字段，做如下修改12345deploy:  type: git  repo: https://github.com/screamThatNight/s
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/18/Hexo的点点滴滴. markdown/#more" rel="contents">
+            <a class="btn" href="/2017/08/18/Hexo的点点滴滴/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -464,7 +477,13 @@
       
         
           
-          
+          背景n UIButton，a UITextView.
+目标
+点击UIButton，Button被选中，UITextView拼接UIButton的title。
+取消UIButton选中，UITextView内对应UIButton的文本被删除。
+当UITextView的文本被任意编辑时，一旦UIButton的title在文本中被破坏完整性，则取消title对应的UIButton的选中状态。
+
+思考A与B的互相影响问题，A的操作影响到B，B的操作影响到A，目前来说无非是利用Delegate，Block或者更时髦的RAC，但是个人更偏爱Block，理由是代理比代码块笨重，写出来的代码没有代码块统一。至
           ...
           <!--noindex-->
           <div class="post-button text-center">
