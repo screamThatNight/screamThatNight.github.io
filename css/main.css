@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: "Microsoft YaHei", Verdana, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -444,20 +444,20 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 750px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 900px;
+    width: 950px;
   }
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 750px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 900px;
+    width: 950px;
   }
 }
 .footer {
@@ -467,11 +467,11 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 750px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 900px;
+    width: 950px;
   }
 }
 pre,
@@ -479,7 +479,7 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: #eaeaea;
   background: #000;
   line-height: 1.6;
@@ -494,7 +494,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 18px;
+  font-size: 14px;
 }
 pre code {
   padding: 0;
@@ -1220,7 +1220,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1928,7 +1928,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e9f44a;
+  background: #471fba;
 }
 .links-of-blogroll {
   font-size: 13px;
