@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -95,6 +95,7 @@
 
 
 <meta name="description" content="站在别人的肩膀上干活儿的确方便. -刘顿  官方教程-中文版    Hexo命令三部曲 hexo clean 清理缓存 hexo g OR hexo generate 生成静态文件 hexo d OR hexo deploy 部署服务器  利用github部署 去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io cd 到你的hexo目录下，clone之">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的点点滴滴">
 <meta property="og:url" content="http://yoursite.com/child/2017/08/18/Hexo的点点滴滴/index.html">
@@ -103,7 +104,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/child/2017/08/18/Hexo的点点滴滴/01.png">
 <meta property="og:image" content="http://yoursite.com/child/2017/08/18/Hexo的点点滴滴/02.png">
-<meta property="og:updated_time" content="2017-08-18T08:10:20.000Z">
+<meta property="og:updated_time" content="2017-08-18T08:21:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo的点点滴滴">
 <meta name="twitter:description" content="站在别人的肩膀上干活儿的确方便. -刘顿  官方教程-中文版    Hexo命令三部曲 hexo clean 清理缓存 hexo g OR hexo generate 生成静态文件 hexo d OR hexo deploy 部署服务器  利用github部署 去github上新建一个仓库，仓库名称格式必须为 你的github账号名称+github.io cd 到你的hexo目录下，clone之">
@@ -309,6 +310,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -350,10 +373,9 @@
 <h2 id="利用github部署"><a href="#利用github部署" class="headerlink" title="利用github部署"></a>利用github部署</h2><ol>
 <li>去github上新建一个仓库，仓库名称格式必须为 <code>你的github账号名称+github.io</code></li>
 <li>cd 到你的hexo目录下，clone之.</li>
-<li>打开<code>_config.yml</code>文件，找到<code>deploy</code>字段，做如下修改<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https:<span class="comment">//github.com/screamThatNight/screamThatNight.github.io.git </span></div><div class="line">  branch: master</div><div class="line">  message:</div></pre></td></tr></table></figure>
-</li>
+<li>打开<code>_config.yml</code>文件，找到<code>deploy</code>字段，做如下修改</li>
 </ol>
-<p>搞定</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https:<span class="comment">//github.com/screamThatNight/screamThatNight.github.io.git </span></div><div class="line">  branch: master</div><div class="line">  message:</div></pre></td></tr></table></figure>
 <h2 id="博客中的代码高亮"><a href="#博客中的代码高亮" class="headerlink" title="博客中的代码高亮"></a>博客中的代码高亮</h2><p>常用语言对应表：（所有支持语言就不罗列了，太多了~）</p>
 <table>
 <thead>
@@ -422,6 +444,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
       
 
       
@@ -524,7 +552,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
@@ -643,6 +689,8 @@
   
 
 
+  
+
 
 
 
@@ -670,6 +718,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
