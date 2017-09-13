@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="UIPageViewController 分页控制器可以让用户在页码之间导航，这些页码都是被各自的视图控制器管理。导航可以被你的app或者用户使用的手势程序化的控制。当在页面间导航时，页面控制器使用你指定的过渡动画来过渡页面。  开始当定义一个页面控制器界面时，你可以一次提供一个内容视图控制器（或者一次两个，取决于spine position 以及 double-sized状态）或者在需要的情况下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIPageViewController从入门到放弃">
+<meta property="og:url" content="http://yoursite.com/child/2017/09/13/UIPageViewController从入门到放弃/index.html">
+<meta property="og:site_name" content="木头人">
+<meta property="og:description" content="UIPageViewController 分页控制器可以让用户在页码之间导航，这些页码都是被各自的视图控制器管理。导航可以被你的app或者用户使用的手势程序化的控制。当在页面间导航时，页面控制器使用你指定的过渡动画来过渡页面。  开始当定义一个页面控制器界面时，你可以一次提供一个内容视图控制器（或者一次两个，取决于spine position 以及 double-sized状态）或者在需要的情况下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/child/2017/09/13/UIPageViewController从入门到放弃/smokeDog.jpg">
+<meta property="og:updated_time" content="2017-09-13T09:21:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIPageViewController从入门到放弃">
+<meta name="twitter:description" content="UIPageViewController 分页控制器可以让用户在页码之间导航，这些页码都是被各自的视图控制器管理。导航可以被你的app或者用户使用的手势程序化的控制。当在页面间导航时，页面控制器使用你指定的过渡动画来过渡页面。  开始当定义一个页面控制器界面时，你可以一次提供一个内容视图控制器（或者一次两个，取决于spine position 以及 double-sized状态）或者在需要的情况下">
+<meta name="twitter:image" content="http://yoursite.com/child/2017/09/13/UIPageViewController从入门到放弃/smokeDog.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/child/2017/09/13/UIPageViewController从入门到放弃/"/>
+
+
+
+
+
+  <title>UIPageViewController从入门到放弃 | 木头人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">木头人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的文字，都是写给时间的情书。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2017/09/13/UIPageViewController从入门到放弃/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kangliu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木头人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UIPageViewController从入门到放弃</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T17:12:21+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="UIPageViewController"><a href="#UIPageViewController" class="headerlink" title="UIPageViewController"></a>UIPageViewController</h1><blockquote>
+<p>分页控制器可以让用户在页码之间导航，这些页码都是被各自的视图控制器管理。<br>导航可以被你的app或者用户使用的手势程序化的控制。<br>当在页面间导航时，页面控制器使用你指定的<code>过渡动画</code>来过渡页面。</p>
+</blockquote>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>当定义一个页面控制器界面时，你可以一次提供一个内容视图控制器（或者一次两个，取决于<code>spine position</code> 以及 <code>double-sized</code>状态）或者在需要的情况下使用<code>data source</code>。当一次提供一个内容视图控制器时，你应当使用<code>setViewControllers:direction:animated:completion:</code>方法来设置当前的内容视图控制器数组。如果想要支持基于手势的导航，你必须使用数据源对象提供视图控制器。<br>页面浏览控制器的数据源负责根据需要提供内容视图控制器并且必须符合<code>UIPageViewControllerDataSource</code>协议。<code>UIPageViewControllerDelegate</code>协议提供一些与外观相关的信息并接收关于手势发起的转换的通知。</p>
+<h2 id="方法与属性"><a href="#方法与属性" class="headerlink" title="方法与属性"></a>方法与属性</h2><h3 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a>初始化方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)initWithTransitionStyle:(<span class="built_in">UIPageViewControllerTransitionStyle</span>)style navigationOrientation:(<span class="built_in">UIPageViewControllerNavigationOrientation</span>)navigationOrientation options:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)options;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">property and methods</th>
+<th style="text-align:left">desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>UIPageViewControllerTransitionStyle</code></td>
+<td style="text-align:left"><code>UIPageViewControllerTransitionStylePageCurl</code> : 通过页面卷曲转换浏览视图 <code>UIPageViewControllerTransitionStyleScroll</code> : 通过滚动浏览视图。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>UIPageViewControllerNavigationOrientation</code></td>
+<td style="text-align:left"><code>UIPageViewControllerNavigationOrientationHorizontal</code> : 水平导航 `UIPageViewControllerNavigationOrientationVertical</td>
+<td>` : 垂直导航</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>options</code>1</td>
+<td style="text-align:left">keys : <code>UIPageViewControllerOptionSpineLocationKey</code>(只有当 <code>transition syle</code>是 <code>UIPageViewControllerTransitionStylePageCurl</code>时设置该key的值才会起作用，当满足<code>transition style</code>是<code>Curl</code>时，默认值是 <code>UIPageViewControllerSpineLocationMin</code>，否则默认是是<code>UIPageViewControllerSpineLocationNone</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>options</code>2</td>
+<td style="text-align:left">keys : <code>UIPageViewControllerOptionInterPageSpacingKey</code> (只有当 <code>transition syle</code>是 <code>UIPageViewControllerTransitionStyleScroll</code>时设置该key的值才会起作用，该键对应的值为<code>CGFloat</code>的<code>Number</code>，默认值为0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="可设置属性"><a href="#可设置属性" class="headerlink" title="可设置属性"></a>可设置属性</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;<span class="built_in">UIPageViewControllerDataSource</span>&gt; dataSource;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;<span class="built_in">UIPageViewControllerDelegate</span>&gt; delegate;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isDoubleSided) <span class="built_in">BOOL</span> doubleSided</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">setable property</th>
+<th style="text-align:left">desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>dataSource</code></td>
+<td style="text-align:left">响应于基于手势的导航来调用数据源的方法。 如果此属性的值为nil，则禁用基于手势的导航。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>delegate</code></td>
+<td style="text-align:left">为了响应基于手势的导航以及方向的变更会调用代理内的方法</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>doubleSided</code></td>
+<td style="text-align:left">如果页面的后面没有内容（值为NO），则页面正面的内容将在翻页时部分显示到后面。如果脊椎位于中间，则值必须为YES。 将脊椎置于中间时将其设置为NO会引发异常。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setViewControllers:(<span class="built_in">NSArray</span>&lt;<span class="built_in">UIViewController</span> *&gt; *)viewControllers direction:(<span class="built_in">UIPageViewControllerNavigationDirection</span>)direction animated:(<span class="built_in">BOOL</span>)animated completion:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span> finished))completion;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果 transition style 是 UIPageViewControllerTransitionStylePageCurl，这些被当做参数传递进方法内的视图控制器取决于 spine location 以及 doubleSided 属性。</span></div></pre></td></tr></table></figure>
+<p>值得注意点是，如果当前设置的是 <code>UIPageViewControllerSpineLocationMid</code>，<code>doubleSided</code>会被设置成<code>YES</code>，如果在<code>Mid</code>的情况下强行设置为<code>NO</code>，编译器会报异常。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">property and methods</th>
+<th style="text-align:left">desc</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>viewControllers</code></td>
+<td style="text-align:left">用于展示的视图控制器</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>direction</code></td>
+<td style="text-align:left">导航的方向</td>
+<td style="text-align:left"><code>forward</code> : 导航到下一个界面 (当PGVC的方向设置为水平时，就是从右往左，垂直时，就是从下往上。) <code>reverse</code> ：导航到前一个界面</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>animated</code></td>
+<td style="text-align:left">控制这个过渡是否需要采用动画</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>completion</code></td>
+<td style="text-align:left">当页面转场动画结束时会调用</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Spine location</th>
+<th style="text-align:left">Double sided</th>
+<th style="text-align:left">What to pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>UIPageViewControllerSpineLocationMid</code></td>
+<td style="text-align:left">YES</td>
+<td style="text-align:left">传递 被展示在左边的页面以及被展示在右边的界面</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>UIPageViewControllerSpineLocationMin</code> or <code>UIPageViewControllerSpineLocationMax</code></td>
+<td style="text-align:left">YES</td>
+<td style="text-align:left">传递 展示在前面的界面以及在这个界面的后面的界面。这个后面的界面被用来做页面翻转动画</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>UIPageViewControllerSpineLocationMin</code> or <code>UIPageViewControllerSpineLocationMax</code></td>
+<td style="text-align:left">NO</td>
+<td style="text-align:left">传递被展示在前面的界面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="readOnly-属性"><a href="#readOnly-属性" class="headerlink" title="readOnly 属性"></a>readOnly 属性</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPageViewControllerTransitionStyle</span> transitionStyle;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPageViewControllerNavigationOrientation</span> navigationOrientation;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPageViewControllerSpineLocation</span> spineLocation;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIGestureRecognizer</span> *&gt; *gestureRecognizers;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIViewController</span> *&gt; *viewControllers;</div></pre></td></tr></table></figure>
+<p>这些都是获取之前设置的属性。</p>
+<h2 id="代理解析"><a href="#代理解析" class="headerlink" title="代理解析"></a>代理解析</h2><h3 id="Data-Source"><a href="#Data-Source" class="headerlink" title="Data Source"></a>Data Source</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIPageViewControllerDataSource</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="keyword">@required</span></div><div class="line"><span class="comment">//就对方向而言，在设置为`UIPageViewControllerNavigationOrientationHorizontal`的情况下， `Before`就是左边的那个，`after`就是右边的那个，在设置为`UIPageViewControllerNavigationOrientationVertral`的情况下，`before`就是上面的，`after`就是下面的</span></div><div class="line"><span class="comment">//如果return nil，就说明在预期的方向上没有其他视图控制器了，不会造成其他问题。。</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIViewController</span> *)pageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController viewControllerBeforeViewController:(<span class="built_in">UIViewController</span> *)viewController;</div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIViewController</span> *)pageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController viewControllerAfterViewController:(<span class="built_in">UIViewController</span> *)viewController;</div><div class="line"></div><div class="line"><span class="keyword">@optional</span></div><div class="line"><span class="comment">//返回在page indicator中反应的元素数量</span></div><div class="line">- (<span class="built_in">NSInteger</span>)presentationCountForPageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0); <span class="comment">// The number of items reflected in the page indicator.</span></div><div class="line"><span class="comment">//返回在页面指示器中被选中的元素下标</span></div><div class="line">- (<span class="built_in">NSInteger</span>)presentationIndexForPageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0); <span class="comment">// The selected item reflected in the page indicator.</span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>先从数据源代理开始，数据源实现可以以任何适合你app的方式自由的处理<code>responsibility</code>,在许多情况下，它应该查看传递给它的视图控制器，确定需要被显示的内容，并且根据需要创建他们需要的视图控制器。你会发现它对于在视图控制器中包含一些额外信息比如页码等，简化要展示的内容任务很有帮助.<br>如果<code>Supporting a Page Indicator ( - presentationCountForPageViewController: &amp;&amp;  - presentationIndexForPageViewController: )</code>这两个数据源代理方法都被实现，并且该<code>Page VC</code> 的<code>transition style</code>是 <code>UIPageViewControllerTransitionStyleScroll</code>，那么一个<code>page indicator</code>就是可见的。<br>这些方法会在<code>setViewControllers:direction:animated:completion:</code>方法调用后，被调用。<br>在手势驱动的导航后，这些方法不会被调用。这个<code>index</code>会自动更新并且视图控制器的数量预计将保持不变。</p>
+<h3 id="Delegate"><a href="#Delegate" class="headerlink" title="Delegate"></a>Delegate</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIPageViewControllerDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@optional</span></div><div class="line"><span class="comment">// Sent when a gesture-initiated transition begins.</span></div><div class="line">- (<span class="keyword">void</span>)pageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController willTransitionToViewControllers:(<span class="built_in">NSArray</span>&lt;<span class="built_in">UIViewController</span> *&gt; *)pendingViewControllers <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0);</div><div class="line"></div><div class="line"><span class="comment">// Sent when a gesture-initiated transition ends. The 'finished' parameter indicates whether the animation finished, while the 'completed' parameter indicates whether the transition completed or bailed out (if the user let go early).</span></div><div class="line">- (<span class="keyword">void</span>)pageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController didFinishAnimating:(<span class="built_in">BOOL</span>)finished previousViewControllers:(<span class="built_in">NSArray</span>&lt;<span class="built_in">UIViewController</span> *&gt; *)previousViewControllers transitionCompleted:(<span class="built_in">BOOL</span>)completed;</div><div class="line"></div><div class="line"><span class="comment">// Delegate may specify a different spine location for after the interface orientation change. Only sent for transition style 'UIPageViewControllerTransitionStylePageCurl'.</span></div><div class="line"><span class="comment">// Delegate may set new view controllers or update double-sided state within this method's implementation as well.</span></div><div class="line">- (<span class="built_in">UIPageViewControllerSpineLocation</span>)pageViewController:(<span class="built_in">UIPageViewController</span> *)pageViewController spineLocationForInterfaceOrientation:(<span class="built_in">UIInterfaceOrientation</span>)orientation __TVOS_PROHIBITED;</div><div class="line"></div><div class="line">- (<span class="built_in">UIInterfaceOrientationMask</span>)pageViewControllerSupportedInterfaceOrientations:(<span class="built_in">UIPageViewController</span> *)pageViewController <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0) __TVOS_PROHIBITED;</div><div class="line">- (<span class="built_in">UIInterfaceOrientation</span>)pageViewControllerPreferredInterfaceOrientationForPresentation:(<span class="built_in">UIPageViewController</span> *)pageViewController <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0) __TVOS_PROHIBITED;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>代理能接收到设备方向的变化以及用户导航到新页面的时机。<br>对于<code>page_curl</code>过渡模式，代理可以提供一个不一样的<code>spine location</code>来对应界面方向的更改。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>依据上述的理论知识，很容易的写出这样一段代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</div><div class="line">vc.view.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</div><div class="line"><span class="built_in">UIPageViewController</span> *pg = [[<span class="built_in">UIPageViewController</span> alloc] initWithTransitionStyle:<span class="built_in">UIPageViewControllerTransitionStyleScroll</span></div><div class="line">                                                           navigationOrientation:<span class="built_in">UIPageViewControllerNavigationOrientationHorizontal</span></div><div class="line">                                                                         options:<span class="literal">nil</span>];</div><div class="line">[pg setViewControllers:@[vc] direction:<span class="built_in">UIPageViewControllerNavigationDirectionForward</span> animated:<span class="literal">YES</span> completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);</div><div class="line">&#125;];</div><div class="line">[<span class="keyword">self</span>.navigationController pushViewController:pg animated:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
+<p>设置代理可以在用户滑动的时候增加前后VC。具体代码就不放了，直接说结论吧。</p>
+<h2 id="我的结论"><a href="#我的结论" class="headerlink" title="我的结论"></a>我的结论</h2><p><img src="smokeDog.jpg" alt=""><br>真特么鸡肋。。。<br>首先说说使用过程中遇到的问题，初始化PageViewController时，无论是采用<code>Curl</code>还是<code>Scroll</code>，都必须调用<code>setViewControllers...</code>这个方法，如果不给予PageViewController的初始内容子内容视图，其后续就再也不会新的界面了，为什么呢？<br>因为DataSource代理方法的触发依赖于用户的操作！！！<br>作！！！<br>！！！<br>由于存在这样的局限性，显而易见，我们没办法在恰当的时机手动增加子视图控制器，如果你坚持任务重复调用 <code>setViewControllers</code>这个方法，那我也没办法，因为这样的做法是很愚蠢的。<br>再者，第二个巨大的局限性是，我们没办法跳页，我想看到第100页，就只能一页一页的翻过去。。。<br>这简直是判了死刑了喂。<br>适配的场景太少了，也难怪用它的人很少。<br>一言以蔽之，放弃，转战自定制的PageViewController。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="kangliu WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="kangliu Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/09/今天学私有仓库/" rel="next" title="今天学私有仓库:)">
+                <i class="fa fa-chevron-left"></i> 今天学私有仓库:)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDMyMi82ODc3"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpeg"
+               alt="kangliu" />
+          <p class="site-author-name" itemprop="name">kangliu</p>
+           
+              <p class="site-description motion-element" itemprop="description">温润如玉</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://handsomeone.com/" title="腾讯奇" target="_blank">腾讯奇</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://longxdragon.github.io/" title="一线圈子龙" target="_blank">一线圈子龙</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.qianbingxu.cn/" title="人生赢家炳" target="_blank">人生赢家炳</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://39.108.113.159/wordpress/" title="萝莉控成" target="_blank">萝莉控成</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UIPageViewController"><span class="nav-number">1.</span> <span class="nav-text">UIPageViewController</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">1.1.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法与属性"><span class="nav-number">1.2.</span> <span class="nav-text">方法与属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">初始化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可设置属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">可设置属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">实例方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readOnly-属性"><span class="nav-number">1.2.4.</span> <span class="nav-text">readOnly 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理解析"><span class="nav-number">1.3.</span> <span class="nav-text">代理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Source"><span class="nav-number">1.3.1.</span> <span class="nav-text">Data Source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delegate"><span class="nav-number">1.3.2.</span> <span class="nav-text">Delegate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">1.4.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的结论"><span class="nav-number">1.5.</span> <span class="nav-text">我的结论</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.8.18 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kangliu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Muse
+    </a>
+  </div>
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63467650";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
